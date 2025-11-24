@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# venv / env
+venv/
+.env/
+*.env
+
+# IDE
+.vscode/
+.idea/
+
+# PyCharm / others
+*.iml
+*.ipr
+*.iws
+
+# Jupyter
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+
+# mypy / coverage / logs
+.mypy_cache/
+.coverage
+htmlcov/
+*.log
+
+# dist / build
+build/
+dist/
+*.egg-info/
+
+# alembic cache
+alembic/__pycache__/
+
+# artifacts (якщо не хочеш комітити моделі/графіки)
+# artifacts/models/
+# artifacts/reports/plots/

@@ -1,0 +1,66 @@
+data:
+  raw_csv_path: data/raw/College_Sports_Dataset.csv
+
+features:
+  numeric:
+    - Age
+    - HR_Variability
+    - VO2_Max
+    - Speed_Index
+    - Endurance_Hours
+    - Risky_Moves
+    - Sleep_Hours
+    - Step_Count
+    - Injury_History
+    - Training_Load
+    - Recovery_Time
+    - Feedback_Level
+
+  categorical:
+    - Gender
+    - Sport
+
+performance_score:
+  components:
+    - VO2_Max
+    - Speed_Index
+    - HR_Variability
+
+  method: zscore_mean
+
+  class_quantiles:
+    low: 0.33
+    high: 0.66
+
+models:
+  regressor:
+    name: random_forest_regressor
+    type: RandomForestRegressor
+    params:
+      n_estimators: 300
+      random_state: 42
+      n_jobs: -1
+
+  classifier:
+    name: random_forest_classifier
+    type: RandomForestClassifier
+    params:
+      n_estimators: 300
+      random_state: 42
+      n_jobs: -1
+
+artifacts:
+  models_dir: artifacts/models
+  reports_dir: artifacts/reports
+  plots_dir: artifacts/reports/plots
+
+database:
+  url: postgresql://postgres:postgres@db:5432/sports
+
+api:
+  host: 0.0.0.0
+  port: 8000
+
+ui:
+  api_url: http://api:8000
+  port: 8501
